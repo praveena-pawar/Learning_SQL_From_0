@@ -32,9 +32,10 @@ GROUP BY grade;
 
 
 
-
-
-
+-- Find how many students are in each (city + grade) combination
+SELECT city, grade, COUNT(*) AS total_students
+FROM students
+GROUP BY city, grade;
 
 
 
