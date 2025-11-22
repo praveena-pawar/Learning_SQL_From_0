@@ -13,3 +13,10 @@ SELECT grade, AVG(marks) FROM students
 GROUP BY grade 
 HAVING AVG(marks) > 85;
 
+
+
+-- Show gender groups where count of students > 5.
+SELECT gender, COUNT(*) AS total_students
+FROM students
+GROUP BY gender
+HAVING COUNT(*) < 5;
