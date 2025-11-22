@@ -28,3 +28,11 @@ SELECT city, AVG(age) AS  average_age
 FROM students 
 GROUP BY city
 HAVING AVG(age) < 18;
+
+
+
+-- Find cities where more than 3 students live
+SELECT city, COUNT(*) 
+FROM students
+GROUP BY city
+HAVING COUNT(*) > 3;
