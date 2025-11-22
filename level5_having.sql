@@ -20,3 +20,11 @@ SELECT gender, COUNT(*) AS total_students
 FROM students
 GROUP BY gender
 HAVING COUNT(*) < 5;
+
+
+
+-- Show cities where the average age > 18.
+SELECT city, AVG(age) AS  average_age
+FROM students 
+GROUP BY city
+HAVING AVG(age) < 18;
