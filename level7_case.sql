@@ -22,3 +22,16 @@ FROM students;
            ELSE 'child'
        END AS age_group
 FROM students;
+
+
+
+
+
+-- Categorize students into age groups:
+SELECT age,
+       CASE
+           WHEN age < 18 THEN 'Minor'
+           WHEN age BETWEEN 18 AND 20 THEN 'Adult'
+           ELSE 'Senior'
+       END AS age_group
+FROM students;
