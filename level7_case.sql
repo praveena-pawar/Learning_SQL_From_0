@@ -46,3 +46,18 @@ SELECT city,
            ELSE 'North'
        END AS region
 FROM students;
+
+
+
+
+-- Write an SQL query to classify students based on their marks:
+SELECT 
+    full_name,
+    marks,
+    CASE 
+        WHEN marks >= 90 THEN 'Outstanding'
+        WHEN marks BETWEEN 75 AND 89 THEN 'Very Good'
+        WHEN marks BETWEEN 50 AND 74 THEN 'Pass'
+        ELSE 'Fail'
+    END AS result_category
+FROM students;
