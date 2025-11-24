@@ -9,3 +9,16 @@ SELECT
         ELSE 'Average'
     END AS result
 FROM students;
+
+
+
+
+--  Create a column called age_group with the following conditions:
+ SELECT full_name,
+       age,
+       CASE
+           WHEN age>= 20 THEN 'Adult'
+           WHEN age BETWEEN 16 AND 19 THEN 'Teenager'
+           ELSE 'child'
+       END AS age_group
+FROM students;
