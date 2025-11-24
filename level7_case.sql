@@ -35,3 +35,14 @@ SELECT age,
            ELSE 'Senior'
        END AS age_group
 FROM students;
+
+
+
+
+-- Add a column as region
+SELECT city,
+       CASE
+           WHEN LOWER(city) IN ('bangalore', 'banglore', 'chennai') THEN 'South'
+           ELSE 'North'
+       END AS region
+FROM students;
