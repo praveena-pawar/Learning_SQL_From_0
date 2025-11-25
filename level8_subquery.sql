@@ -23,3 +23,11 @@ WHERE age > (SELECT AVG(age) FROM students);
 SELECT * 
 FROM students
 WHERE marks = (SELECT MAX(marks) FROM students);
+
+
+
+
+-- Show the student(s) with the lowest marks using a subquery.
+SELECT * 
+FROM students
+WHERE marks = (SELECT MIN(marks) FROM students);
