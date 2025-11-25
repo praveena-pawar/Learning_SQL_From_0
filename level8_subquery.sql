@@ -15,3 +15,11 @@ WHERE marks > (SELECT AVG(marks) FROM students);
 SELECT *
 FROM students
 WHERE age > (SELECT AVG(age) FROM students);
+
+
+
+
+-- Show the student(s) with the highest marks using a subquery.
+SELECT * 
+FROM students
+WHERE marks = (SELECT MAX(marks) FROM students);
