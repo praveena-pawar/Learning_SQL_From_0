@@ -31,3 +31,11 @@ WHERE marks = (SELECT MAX(marks) FROM students);
 SELECT * 
 FROM students
 WHERE marks = (SELECT MIN(marks) FROM students);
+
+
+
+
+-- Show all students whose marks are less than the marks of Praveena
+SELECT * 
+FROM students
+WHERE marks < (SELECT marks FROM students WHERE full_name = 'praveena');
