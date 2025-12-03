@@ -5,3 +5,12 @@ INNER JOIN supplier a
 ON s.s_id = a.s_id
 INNER JOIN part p
 ON p.p_id = s.p_id;
+
+
+
+-- Q2. List all suppliers who supply parts priced above 100.
+SELECT a.s_name, a.city, p.p_name, p.price
+FROM supplies s
+INNER JOIN supplier a ON s.s_id = a.s_id
+INNER JOIN part p ON s.p_id = p.p_id
+WHERE p.price > 100;
