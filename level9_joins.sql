@@ -24,3 +24,14 @@ FROM part p
 INNER JOIN supplies s
 ON p.p_id = s.p_id
 GROUP BY p.p_name, p.color;
+
+
+
+
+-- Q4. Show the names of suppliers who have supplied red-colored parts.
+SELECT s_name FROM supplier s
+INNER JOIN supplies a
+ON s.s_id = a.s_id
+INNER JOIN part p
+ON p.p_id = a.p_id
+WHERE p.color = 'red';
