@@ -35,3 +35,13 @@ ON s.s_id = a.s_id
 INNER JOIN part p
 ON p.p_id = a.p_id
 WHERE p.color = 'red';
+
+
+
+
+
+-- Q5. List all parts that have never been supplied by any supplier.
+SELECT * FROM part p
+LEFT JOIN supplies s
+ON p.p_id = s.p_id 
+WHERE s.p_id IS NULL;
