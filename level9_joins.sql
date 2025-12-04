@@ -45,3 +45,12 @@ SELECT * FROM part p
 LEFT JOIN supplies s
 ON p.p_id = s.p_id 
 WHERE s.p_id IS NULL;
+
+
+
+-- - Q6. Display the supplier name and the number of different parts supplied by each supplier.
+SELECT s.s_name, COUNT(DISTINCT p.p_id) 
+FROM part p
+INNER JOIN supplies a ON p.p_id = a.p_id 
+INNER JOIN supplier s ON s.s_id = a.s_id
+GROUP BY s.s_name;
