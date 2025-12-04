@@ -14,3 +14,13 @@ FROM supplies s
 INNER JOIN supplier a ON s.s_id = a.s_id
 INNER JOIN part p ON s.p_id = p.p_id
 WHERE p.price > 100;
+
+
+
+
+-- Q3. Display the part name, color, and the total quantity supplied for each part.
+SELECT p.p_name, p.color, SUM(s.qty) AS total_qty
+FROM part p
+INNER JOIN supplies s
+ON p.p_id = s.p_id
+GROUP BY p.p_name, p.color;
