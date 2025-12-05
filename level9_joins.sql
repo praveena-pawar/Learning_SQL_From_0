@@ -78,3 +78,14 @@ FROM supplier s
 INNER JOIN supplies a ON s.s_id = a.s_id 
 INNER JOIN part p ON p.p_id = a.p_id 
 WHERE p.price > (SELECT AVG(price) FROM part );
+
+
+
+
+-- Q2. List all suppliers who have supplied more than one type of part.
+-- (Show supplier name and number of different parts supplied.)
+SELECT s.s_name, COUNT(DISTINCT a.p_id) AS number_of_parts_supplied
+FROM supplier s
+JOIN supplies a ON s.s_id = a.s_id
+GROUP BY s.s_id, s.s_name
+HAVING COUNT(DISTINCT a.p_id) > 1;
