@@ -89,3 +89,13 @@ FROM supplier s
 JOIN supplies a ON s.s_id = a.s_id
 GROUP BY s.s_id, s.s_name
 HAVING COUNT(DISTINCT a.p_id) > 1;
+
+
+
+
+-- Q3. Show the supplier name and part name even for suppliers who have NOT supplied any part
+SELECT s_name, p_name 
+FROM supplier s
+LEFT JOIN supplies a ON s.s_id = a.s_id 
+LEFT JOIN part p ON p.p_id = a.p_id
+WHERE a.s_id IS NULL;
