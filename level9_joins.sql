@@ -54,3 +54,27 @@ FROM part p
 INNER JOIN supplies a ON p.p_id = a.p_id 
 INNER JOIN supplier s ON s.s_id = a.s_id
 GROUP BY s.s_name;
+
+
+
+
+-- Q7. Show supplier name, part name, and date supplied in descending order of date.
+SELECT s.s_name, p.p_name, a.date_supplied 
+FROM supplier s
+INNER JOIN supplies a ON s.s_id = a.s_id
+INNER JOIN part p ON p.p_id = a.p_id
+ORDER BY date_supplied  DESC;
+
+
+
+
+
+-- These are slightly advanced
+
+-- Display the supplier name, part name, quantity, and date supplied
+-- for all supplies where the part price is greater than the average part price.
+SELECT s.s_name, p.p_name, a.qty, a.date_supplied
+FROM supplier s
+INNER JOIN supplies a ON s.s_id = a.s_id 
+INNER JOIN part p ON p.p_id = a.p_id 
+WHERE p.price > (SELECT AVG(price) FROM part );
