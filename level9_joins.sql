@@ -99,3 +99,13 @@ FROM supplier s
 LEFT JOIN supplies a ON s.s_id = a.s_id 
 LEFT JOIN part p ON p.p_id = a.p_id
 WHERE a.s_id IS NULL;
+
+
+
+
+-- Q4. Display the part name and the latest (most recent) supply date for each part.
+SELECT p.p_name, MAX(date_supplied) 
+FROM part p
+INNER JOIN supplies s ON p.p_id = s.p_id 
+INNER JOIN supplier a ON a.s_id = s.s_id
+GROUP BY p.p_name;
