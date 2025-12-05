@@ -109,3 +109,11 @@ FROM part p
 INNER JOIN supplies s ON p.p_id = s.p_id 
 INNER JOIN supplier a ON a.s_id = s.s_id
 GROUP BY p.p_name;
+
+
+-- Q5. Show all parts along with the names of suppliers who supplied them.
+-- If a part has never been supplied, display the part name with supplier as NULL
+SELECT p.p_name, s.s_name
+FROM part p
+LEFT JOIN supplies sup ON p.p_id = sup.p_id
+LEFT JOIN supplier s ON sup.s_id = s.s_id;
